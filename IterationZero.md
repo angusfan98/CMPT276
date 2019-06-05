@@ -3,11 +3,11 @@ CMPT 276 PROJECT
 Three Project Proposals
 Group of 4:
 
-Names:	        SFU ID:
-Angus Fan	      301317306
-Jasdeep Gill	  301356131
-Freeman Liu	    301342566
-Artur Eginyan	  301311126
+Names:		 SFU ID:
+Angus Fan	 301317306
+Jasdeep Gill	 301356131
+Freeman Liu	 301342566
+Artur Eginyan	 301311126
 
 1. SHARE is a website/interface which allows users to neatly organize their links, projects and files in a clear and concise manner. Currently most websites provide user access to files on their own server and format files are disorganized and not user friendly. SHARE will make life easier by reducing how much users have to jump back and forth between websites searching for projects and documents.  The target audience are users who use services like Dropbox or GitHub for storage or online collaborative work that would like an organized way to share and maintain these projects. SHARE will have one main menu with many different features such as creating different groups, creating sections/headers, searching for files. Regulars can access, share and upload links, projects and files through URLs or their local storage to the server. Admins can view and remove the same things but will not be able to share or upload anything to the server unless they make their own regular user account. 
 
