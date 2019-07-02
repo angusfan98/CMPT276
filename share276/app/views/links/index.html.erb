@@ -9,7 +9,7 @@
  
   <% @links.each do |link| %>
     <tr>
-      <td><%= link.URL %></td>
+      <td><%= link.URL.gsub(URI.regexp, '<a href="\0">\0</a>').html_safe %></td>
       <td><%= link.Description %></td>
       <td><%= link_to 'Show', link_path(link) %></td>
     </tr>
