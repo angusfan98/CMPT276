@@ -1,3 +1,10 @@
 <body class = welcomepage>
-<h2>Welcome to SHARE! A service focused on centralizing all your projects.</h2>
+<h2>Welcome to SHARE! A service focused on centralizing all your projects.</h2> </br>
+<%if current_user %>
+<center><button type="button"><%= link_to 'Sign out', destroy_user_session_path, method: :delete%></button></center>
+<% else %>
+<center><button type="button"><%= link_to 'Register', new_user_registration_path %></button></center></br>
+<center><button type="button"><%= link_to 'Login', new_user_session_path %></button></center>
+<% end %>
+
 </body>
