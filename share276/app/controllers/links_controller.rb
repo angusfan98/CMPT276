@@ -4,6 +4,7 @@ class LinksController < ApplicationController
     end
     
     def new
+        @link = Link.new
     end
 
     def show
@@ -13,8 +14,11 @@ class LinksController < ApplicationController
     def create
         @link = Link.new(link_params)
        
-        @link.save
-        redirect_to @link
+        if @link.save
+            redirect_to @link
+        else
+            render 'new'
+        end
     end
        
     private
