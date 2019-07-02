@@ -1,18 +1,16 @@
 <body>
-<h1>Listing Links</h1>
- 
-<table>
+<h1>Your Links</h1>
+<table id="table1">
   <tr>
     <th>URL</th>
     <th>Description</th>
     <th></th>
   </tr>
- 
   <% @links.each do |link| %>
     <tr>
       <td><%= link.URL.gsub(URI.regexp, '<a href="\0">\0</a>').html_safe %></td>
       <td><%= link.Description %></td>
-      <td><%= link_to 'Show', link_path(link) %></td>
+<!--       <td><%= link_to 'Show', link_path(link) %></td> -->
     </tr>
   <% end %>
 </table>
