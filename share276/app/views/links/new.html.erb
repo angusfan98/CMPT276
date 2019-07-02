@@ -1,19 +1,17 @@
 <body>
 <h1>New Link</h1>
-
 <%= form_with scope: :link, url: links_path, local: true do |form| %>
     <p>
       <%= form.label :URL %><br>
-      <%= form.text_field :URL %>
+      <%= form.text_field(:URL, {:class =>'form-control'}) %>
     </p>
    
     <p>
       <%= form.label :Description %><br>
-      <%= form.text_area :Description %>
+      <%= form.text_area(:Description, {:class =>'form-control'}) %>
     </p>
-   
     <p>
-      <%= form.submit %>
+      <%= form.submit({:class => "btn btn-primary"}) %>
     </p>
   <% end %>
 
