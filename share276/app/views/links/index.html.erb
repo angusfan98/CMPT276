@@ -10,11 +10,11 @@
     <tr>
       <td><%= link.URL.gsub(URI.regexp, '<a href="\0">\0</a>').html_safe %></td>
       <td><%= link.Description %></td>
-      <td><%= link_to 'Show', link_path(link) %></td>
-      <td><%= link_to 'Edit', edit_link_path(link) %></td>
-      <td><%= link_to 'Remove', link_path(link),
+      <td><button type="button"><%= link_to 'Show', link_path(link) %></button></td>
+      <td><button type="button"><%= link_to 'Edit', edit_link_path(link) %></button></td>
+      <td><button type="button"><%= link_to 'Remove', link_path(link),
         method: :delete,
-        data: { confirm: 'Are you sure?' } %></td>
+        data: { confirm: 'Are you sure?' } %></button></td>
     </tr>
   <% end %>
 </table>
