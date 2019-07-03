@@ -18,12 +18,13 @@
  
   <p>
     <%= form.label :URL %><br>
-    <%= form.text_field(:URL, {:class =>'form-control'}) %>
+    <%= form.text_field(:URL, {:class =>'col-md-4 form-control', :placeholder => 'URL'}) %>
+    <small class="form-text text-muted">Remember to include https:// in your URL.</small>
   </p>
  
   <p>
     <%= form.label :Description %><br>
-    <%= form.text_area(:Description, {:class =>'form-control'}) %>
+    <%= form.text_area(:Description, {:class =>'form-control', :placeholder => 'Description', :rows => 6}) %>
   </p>
  
   <p>
