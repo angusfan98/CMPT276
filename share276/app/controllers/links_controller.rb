@@ -31,7 +31,7 @@ class LinksController < ApplicationController
         if @link.update(link_params)
             redirect_to @link
         else
-            redner 'edit'
+            render 'edit'
         end
     end
 
