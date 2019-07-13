@@ -1,0 +1,17 @@
+<body>
+<h1>Your Links</h1><br/>
+
+  <% @links.each do |link| %>
+    <div class="card">
+      <div class="card-header"><%= link.Description %></div>
+      <div class="card-body"><%= link.URL.gsub(URI.regexp, '<a href="\0" target="_blank">\0</a>').html_safe %></div> 
+      <div class="card-footer">
+        <button type="button"><%= link_to 'Show', link_path(link) %></button>
+        <button type="button"><%= link_to 'Edit', edit_link_path(link) %></button>
+        <button type="button"><%= link_to 'Remove', link_path(link), method: :delete,
+        data: { confirm: 'Are you sure you want to remove this URL?' } %></button>
+      </div>
+  </div><br/>
+  <% end %>
+
+</body>

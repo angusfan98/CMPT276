@@ -19,12 +19,14 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
-
+      
+  <%if current_user %>
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -36,6 +38,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="/new">Create New Link <span class="sr-only">(current)</span></a>
       </li>
+  <% end %>
 
 <!--       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
@@ -58,7 +61,6 @@
     </form> -->
   </div>
 </nav>
-<br></br>
 <br></br>
 <br></br>
     <div class="container">

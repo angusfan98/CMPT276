@@ -1,0 +1,30 @@
+<body>
+<h1>Your Links</h1>
+<table id="table1">
+  <tr>
+    <th>URL</th>
+    <th>Description</th>
+    <th></th>
+  </tr>
+  <% @links.each do |link| %>
+    <tr>
+      <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover"><%= link.Description %></a>
+
+      <script>
+      $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();   
+      });
+      </script>
+
+      <br/>
+      <td><%= link.URL.gsub(URI.regexp, '<a href="\0" target="_blank">\0</a>').html_safe %></td>
+      <td><%= link.Description %></td>
+      <td><button type="button"><%= link_to 'Show', link_path(link) %></button></td>
+      <td><button type="button"><%= link_to 'Edit', edit_link_path(link) %></button></td>
+      <td><button type="button"><%= link_to 'Remove', link_path(link),
+        method: :delete,
+        data: { confirm: 'Are you sure you want to remove this URL?' } %></button></td>
+    </tr>
+  <% end %>
+</table>
+
