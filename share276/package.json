@@ -1,7 +1,5 @@
 {
   "name": "share276",
   "private": true,
-  "dependencies": {
-    "bootstrap": "^4.3.1"
-  }
+  "dependencies": {}
 }
