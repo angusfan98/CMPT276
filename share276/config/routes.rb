@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'test/test'
   devise_for :views
   devise_for :users
 	root 'welcome#index'

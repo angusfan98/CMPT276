@@ -1,15 +1,18 @@
+<!-- This layout applies to ALL pages on SHARE -->
 <!DOCTYPE html>
 <html>
   <head>
-    <%= stylesheet_link_tag "maintheme.css" %>
     <title>Share276</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'%>
+    <%= stylesheet_link_tag "maintheme.css" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
+
+<!-- Main NavBar for all pages -->
+<!-- Buttons here are seen by all users: SHARE button and home button -->
 
   <body>
    <%= render 'layouts/devisealerts' %>
@@ -19,12 +22,17 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
+      
 
+      <!-- Buttons that are only viewable if the user is logged in -->
+
+  <%if current_user %>
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -36,7 +44,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="/new">Create New Link <span class="sr-only">(current)</span></a>
       </li>
+  <% end %>
 
+<!-- Unused buttons : Disabled button, Dropdown button and Search bar -->
 <!--       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
       </li> -->
@@ -60,9 +70,15 @@
 </nav>
 <br></br>
 <br></br>
-<br></br>
     <div class="container">
       <%= yield %>
   </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
   </body>
 </html>
