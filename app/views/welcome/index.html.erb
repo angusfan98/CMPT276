@@ -27,13 +27,17 @@
     <!-- This is the main big rectangle that displays main information about our service. Includes login and register button XOR sign out button -->
     <div class="jumbotron">
       <div class="container">
-        <h1 class="display-3">Welcome to SHARE </center></h1>
+        <h1 class="display-3">Welcome to SHARE</center></h1>
+        <%if current_user %>
+        <h1 class="display-3">Hello, <%=current_user.name %></center></h1>
+        <% end %>
         <p>A service oriented in centralizing all your projects into one place. Access, share and upload your links, projects and files through URLs or connect to Google Drive and Dropbox directly. Create groups to collaborate with others while also headers to organize, categorize and rearrange files.</p>
         <%if current_user %>
-		<left><button type="button"><%= link_to 'Sign out', destroy_user_session_path, method: :delete%></button></left>
-		<% else %>
-		<left><button style="margin:10px;" type="button"><%= link_to 'Register', new_user_registration_path %></button></left>
-		<left><button type="button"><%= link_to 'Login', new_user_session_path %></button></left>
+          <left><button type="button"><%= link_to 'Sign out', destroy_user_session_path, method: :delete%></button></left>
+          <left><button type="button"><%= link_to 'Edit Profile', edit_user_registration_path %></button></left>
+		    <% else %>
+		      <left><button style="margin:10px;" type="button"><%= link_to 'Register', new_user_registration_path %></button></left>
+		      <left><button type="button"><%= link_to 'Login', new_user_session_path %></button></left>
 		<% end %>
       </div>
     </div>
