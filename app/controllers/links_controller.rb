@@ -16,7 +16,7 @@ class LinksController < ApplicationController
     end
 
     def create
-        @link = Link.new(link_params)
+        @link = Link.create(link_params)
        
         if @link.save
             redirect_to @link
@@ -44,6 +44,6 @@ class LinksController < ApplicationController
 
     private
         def link_params
-          params.require(:link).permit(:URL, :Description)
+          params.require(:link).permit(:Name, :URL, :Description)
         end 
 end

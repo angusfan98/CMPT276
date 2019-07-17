@@ -14,11 +14,14 @@
         </ul>
       </div>
     <% end %>
-    
+    <p>
+    <%= form.label :Name %><br>
+    <%= form.text_field(:Name, {:class =>'col-md-4 form-control', :placeholder => 'Name'}) %>
+    </p>
+
     <p>
       <%= form.label :URL %><br>
       <%= form.text_field(:URL, {:class =>'col-md-4 form-control', :placeholder => 'URL'}) %>
-      <small class="form-text text-muted">Remember to include https:// in your URL.</small>
     </p>
    
     <p>
