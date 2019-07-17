@@ -11,6 +11,12 @@
     <%= f.password_field :password, autocomplete: "current-password", class: 'col-md-3 form-control' %>
   </div>
 
+  <%= devise_error_messages! %>
+    <% flash.each do |key, value| %>
+       <div class="flash <%= key %>l"><%= value %></div>
+    <% end %>
+  
+
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <br/>
