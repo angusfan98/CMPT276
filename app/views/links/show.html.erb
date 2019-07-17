@@ -1,15 +1,19 @@
 <body>
-<p>
-  <strong>Name:</strong>
-  <%=@link.Name %>
-</p>
+	<p>
+	  <strong>Name:</strong>
+	  <%=@link.Name %>
+	</p>
 
-<p>
-  <strong>URL:</strong>
-  <%=@link.URL.gsub(URI.regexp, '<a href="\0">\0</a>').html_safe %>
-</p>
- 
-<p>
-  <strong>Description:</strong>
-  <%= @link.Description %>
-</p>
+	<p>
+	  <strong>URL:</strong>
+	  <%=@link.URL.gsub(URI.regexp, '<a href="\0">\0</a>').html_safe %>
+	</p>
+	 
+	<p>
+	  <strong>Description:</strong>
+	  <%= @link.Description %>
+	</p>
+
+	<a href="/links">Back to Links</a>
+
+</body>
