@@ -30,7 +30,7 @@
   <table class="table table-hover table-bordered">
     <thead class="thead thead-dark"><br/>
       <tr>
-        <th>Link</th>
+        <th>Links</th>
         <th></th>
       </tr>
     </thead>
@@ -38,18 +38,16 @@
       <% @links.each do |link| %>
         <tr>
           <br/>
-          <td id = "urls"><a href='<%= link.URL.html_safe %>' target="_blank"=><%= link.Description %></a>
+          <td id = "urls"><a href='<%= link.URL.html_safe %>' target="_blank"=><%= link.Name %></a><br/>
+          <a><%= link.Description %></a>
           <small class="form-text text-muted"><%= link.URL.html_safe %></small></td>
-         <td><div class="dropdown">
-            <button type="button" class="dropdown-toggle" data-toggle="dropdown">Options</button>
-            <div class="dropdown-menu">
-              <center><%= link_to 'Show', link_path(link) %></center>
-              <center><%= link_to 'Edit', edit_link_path(link) %></center>
-              <center><%= link_to 'Remove', link_path(link),
-        method: :delete,
-        data: { confirm: 'Are you sure you want to remove this URL?' } %></center>
-            </div>
-          </div></td>
+          <td> <center><div class="btn-group">
+            <button type="button" class="btn btn-primary"><%= link_to 'Show', link_path(link) %></button>
+            <button type="button" class="btn btn-primary"><%= link_to 'Edit', edit_link_path(link) %></button>
+            <button type="button" class="btn btn-primary"><%= link_to 'Remove', link_path(link),
+      method: :delete,
+      data: { confirm: 'Are you sure you want to remove this URL?' } %></button>
+          </div></center></td>
         </tr>
       <% end %>
     </tbody>
@@ -68,4 +66,3 @@ $(document).ready(function(){
 
 </body>
 </html>
-
