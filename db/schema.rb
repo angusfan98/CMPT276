@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2019_07_02_081527) do
   enable_extension "plpgsql"
 
   create_table "links", force: :cascade do |t|
+    t.integer "user_id"
     t.text "Name"
     t.string "URL"
     t.text "Description"
