@@ -1,39 +1,43 @@
 <body>
-<h1 class="display-3">New Link</h1><br/>
-<%= form_with scope: :link, url: links_path, local: true do |form| %>
+  <%if current_user %>
+    <h1 class="display-3">New Link</h1><br/>
+    <%= form_with scope: :link, url: links_path, local: true do |form| %>
 
-    <% if @link.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          The following errors have occured:
-        </h2>
-        <ul>
-          <% @link.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <p>
-    <%= form.label :Name %><br>
-    <%= form.text_field(:Name, {:class =>'col-md-4 form-control', :placeholder => 'Name (Required)'}) %>
-    </p>
+        <% if @link.errors.any? %>
+          <div id="error_explanation">
+            <h2>
+              The following errors have occured:
+            </h2>
+            <ul>
+              <% @link.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <p>
+        <%= form.label :Name %><br>
+        <%= form.text_field(:Name, {:class =>'col-md-4 form-control', :placeholder => 'Name (Required)'}) %>
+        </p>
 
-    <p>
-      <%= form.label :URL,'URL' %>
+        <p>
+          <%= form.label :URL,'URL' %>
 
-      <br>
-      <%= form.text_field(:URL, {:class =>'col-md-4 form-control', :placeholder => 'URL (Required)'}) %>
-    </p>
-   
-    <p>
-      <%= form.label :Description %><br>
-      <%= form.text_area(:Description, {:class =>'form-control', :placeholder => 'Description (Optional)', :rows => 6}) %>
-    </p>
-    <p>
-      <%= form.submit({:class => "btn btn-primary"}) %>
-    </p>
+          <br>
+          <%= form.text_field(:URL, {:class =>'col-md-4 form-control', :placeholder => 'URL (Required)'}) %>
+        </p>
+       
+        <p>
+          <%= form.label :Description %><br>
+          <%= form.text_area(:Description, {:class =>'form-control', :placeholder => 'Description (Optional)', :rows => 6}) %>
+        </p>
+        <p>
+          <%= form.submit({:class => "btn btn-primary"}) %>
+        </p>
+      <% end %>
+      <a href="/links">Back to Links</a>
+  <% else %>
+    <meta http-equiv='refresh' content='0; URL=/'>
   <% end %>
-  <a href="/links">Back to Links</a>
 </body>
 

@@ -21,48 +21,51 @@
 
 
 
+<%if current_user %>
+  <h1 class="display-3">Your Links</h1><br/>
 
-<h1 class="display-3">Your Links</h1><br/>
-
-<div class="container mt-3">
-  <p>Search for a URL, Description or Name</p>  
-  <input class="form-control" id="myInput" type="text" placeholder="Search..">
-  <table class="table table-hover table-bordered">
-    <thead class="thead thead-dark"><br/>
-      <tr>
-        <th>Links</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody id="myTable">
-      <% current_user.links.each do |link| %>
+  <div class="container mt-3">
+    <p>Search for a URL, Description or Name</p>  
+    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+    <table class="table table-hover table-bordered">
+      <thead class="thead thead-dark"><br/>
         <tr>
-          <br/>
-          <td id = "urls"><a href='//<%= link.URL.html_safe %>' target="_blank"=><%= link.Name %></a><br/>
-          <a><%= link.Description %></a>
-          <small class="form-text text-muted"><%= link.URL.html_safe %></small></td>
-          <td> <center><div class="btn-group">
-            <button type="button" class="btn btn-primary"><%= link_to 'Show', link_path(link) %></button>
-            <button type="button" class="btn btn-primary"><%= link_to 'Edit', edit_link_path(link) %></button>
-            <button type="button" class="btn btn-primary"><%= link_to 'Remove', link_path(link),
-      method: :delete,
-      data: { confirm: 'Are you sure you want to remove this URL?' } %></button>
-          </div></center></td>
+          <th>Links</th>
+          <th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody id="myTable">
+        <% @links.each do |link| %>
+          <tr>
+            <br/>
+            <td id = "urls"><a href='<%= link.URL.html_safe %>' target="_blank"=><%= link.Name %></a><br/>
+            <a><%= link.Description %></a>
+            <small class="form-text text-muted"><%= link.URL.html_safe %></small></td>
+            <td> <center><div class="btn-group">
+              <button type="button" class="btn btn-primary"><%= link_to 'Show', link_path(link) %></button>
+              <button type="button" class="btn btn-primary"><%= link_to 'Edit', edit_link_path(link) %></button>
+              <button type="button" class="btn btn-primary"><%= link_to 'Remove', link_path(link),
+        method: :delete,
+        data: { confirm: 'Are you sure you want to remove this URL?' } %></button>
+            </div></center></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+  <script>
+  $(document).ready(function(){
+    $("#myInput").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#myTable tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
     });
   });
-});
-</script>
+  </script>
+<% else %>
+  <meta http-equiv='refresh' content='0; URL=/'>
+<% end %>
 
 </body>
 </html>
