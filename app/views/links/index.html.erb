@@ -38,7 +38,7 @@
           <% current_user.links.each do |link| %>
           <tr>
             <br/>
-            <td id = "urls"><a href='<%= link.URL.html_safe %>' target="_blank"=><%= link.Name %></a><br/>
+            <td id = "urls"><a href='//<%= link.URL.html_safe %>' target="_blank"=><%= link.Name %></a><br/>
             <small class="form-text text-muted"><%= link.URL.html_safe %></small></td>
             <td> <center><div class="btn-group">
               <button type="button" class="btn btn-primary"><%= link_to 'Show', link_path(link) %></button>
